@@ -1,13 +1,46 @@
 //Dependencies
 require("dotenv").config();
 
-var Spotify = require("node-spotify-api");
-var request = require("request");
-var moment = require("moment");
+const fs = require('fs');
+const request = require('request');
 
-var fs = require("fs");
 
-var keys = require("./keys");
+let Spotify = require("node-spotify-api");
+let moment = require("moment");
 
-var spotify = new Spotify(keys.spotify);
-console.log("spotify", spotify);
+let keys = require("./keys");
+
+let spotify = new Spotify(keys.spotify);
+let spID = spotify.credentials.id;
+let spSecret = spotify.credentials.secret;
+// console.log("spotify", spotify);
+// console.log("spID", spID, "spSecret", spSecret);
+
+var apiInfo = keys.apiInfo;
+let omdbAPI = apiInfo.omdbAPI;
+let bitAPI = apiInfo.bitAPI;
+// console.log("apiInfo", apiInfo);
+// console.log("omdbAPI", omdbAPI, "bitInfo", bitAPI);
+
+let instruction = process.argv[2];
+
+
+switch (instruction) {
+  case "concert-this":
+    console.log("instruction = concert-this");
+    break;
+  case "spotify-this-song":
+    console.log("instruction = spotify-this-spng");
+    break;
+  case "movie-this":
+    console.log("instruction = movie-this");
+    break;
+  case "do-what-it-says":
+    console.log("instruction = do-what-it-says");
+    break;
+  default:
+    console.log("Please input a valid instruction");
+};
+
+
+

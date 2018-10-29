@@ -1,19 +1,16 @@
 
 console.log("keys.js is loaded")
 
-exports.spotify = {
+const spotify = {
   id: process.env.SPOTIFY_ID,
   secret: process.env.SPOTIFY_SECRET
 };
 
+const apiInfo = {
+  omdbAPI: process.env.OMDB_API,
+  bitAPI: process.env.BandsInTown_API
+}
 
+module.exports = { spotify, apiInfo };
 
-// const spotify = {
-//   id: process.env.SPOTIFY_ID,
-//   secret: process.env.SPOTIFY_SECRET
-// };
-
-// module.exports = {
-//   spotify: spotify
-// };
 
